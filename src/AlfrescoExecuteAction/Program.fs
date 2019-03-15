@@ -8,6 +8,19 @@ open AlfrescoCoreApi
 open Newtonsoft.Json
 open System.IO
 
+type Options = {
+    User: string
+    Password: string
+    Url: string
+    TargetPath: string
+}
+
+let defaltOptions() =
+    { User = "admin"
+      Password = "admin"
+      Url = "http://localhost:8082"
+      TargetPath = " "}
+
 let basicToken user password =
     let byteArray = Encoding.ASCII.GetBytes(sprintf "%s:%s" user password)
     let base64 = Convert.ToBase64String(byteArray)
@@ -32,6 +45,7 @@ let executeAction url ticket body =
 
     let json = JsonConvert.SerializeObject(response)
     printfn "%s" json
+
 
 [<EntryPoint>]
 let main argv =
