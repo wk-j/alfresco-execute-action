@@ -1,0 +1,2 @@
+GET http://localhost:8082/alfresco/api/-default-/public/alfresco/versions/1/action-definitions?skipCount=0&maxItems=100
+Authorization: Basic admin admin

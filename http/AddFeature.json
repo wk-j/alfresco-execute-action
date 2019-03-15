@@ -1,0 +1,7 @@
+{
+    "actionDefinitionId": "add-features",
+    "targetId": "93ca01f1-d126-4ab2-a9bd-2cda27f65fe5",
+    "params": {
+        "aspect-name": "cm:versionable"
+    }
+}

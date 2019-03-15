@@ -6,6 +6,7 @@ open System.Net.Http.Headers
 open AlfrescoAuthApi
 open AlfrescoCoreApi
 open Newtonsoft.Json
+open System.IO
 
 let basicToken user password =
     let byteArray = Encoding.ASCII.GetBytes(sprintf "%s:%s" user password)
@@ -21,37 +22,30 @@ let getTicket url user password =
         |> Async.RunSynchronously
     (response.Entry.Id)
 
-let executeAction url ticket =
+let executeAction url ticket body =
     let core = AlfrescoCore()
     core.Init(url, ticket)
+    let response =
+        core.ActionExecAsync(actionBodyExec = body)
+        |> Async.AwaitTask
+        |> Async.RunSynchronously
 
-    let exec = ActionBodyExec()
-    exec.ActionDefinitionId <- ""
-    exec.Params
-
-    //core.ActionExecAsync()
+    let json = JsonConvert.SerializeObject(response)
+    printfn "%s" json
 
 [<EntryPoint>]
 let main argv =
+
+    // http://localhost:8080/share/page/folder-details?nodeRef=workspace://SpacesStore/93ca01f1-d126-4ab2-a9bd-2cda27f65fe5
 
     let url = "http://localhost:8082"
     let user = "admin"
     let password = "admin"
     let ticket = getTicket url user password
 
-    let json =
-        """{
-            "actionDefinitionId": "aaa",
-            "params": {
-                "a" : 100,
-                "b" : 200
-            }
-        }"""
+    let json = File.ReadAllText("http/AddFeature.json")
+    let actionBody = JsonConvert.DeserializeObject<ActionBodyExec>(json)
 
-    let obj = JsonConvert.DeserializeObject<ActionBodyExec>(json)
-    printfn "%A" obj.ActionDefinitionId
-    printfn "%A" obj.Params
-
-    printfn "%A" <| obj.ToJson()
+    executeAction url ticket actionBody
 
     0 // return an integer exit code

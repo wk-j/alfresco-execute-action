@@ -1,0 +1,594 @@
+{
+    "list": {
+        "pagination": {
+            "count": 18,
+            "hasMoreItems": false,
+            "totalItems": 18,
+            "skipCount": 0,
+            "maxItems": 100
+        },
+        "entries": [
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "aspect-name",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Aspect",
+                            "parameterConstraintName": "ac-aspects"
+                        }
+                    ],
+                    "name": "add-features",
+                    "trackStatus": false,
+                    "description": "This will add an aspect to the matched item.",
+                    "adhocPropertiesAllowed": true,
+                    "id": "add-features",
+                    "title": "Add aspect"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [
+                        "cm:null"
+                    ],
+                    "parameterDefinitions": [
+                        {
+                            "name": "action",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": true
+                        },
+                        {
+                            "name": "result",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false
+                        }
+                    ],
+                    "name": "blog-post",
+                    "trackStatus": false,
+                    "adhocPropertiesAllowed": false,
+                    "id": "blog-post"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [
+                        "cm:content"
+                    ],
+                    "parameterDefinitions": [
+                        {
+                            "name": "description",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Description"
+                        },
+                        {
+                            "name": "minorChange",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Minor change"
+                        }
+                    ],
+                    "name": "check-in",
+                    "trackStatus": false,
+                    "description": "This will check in the matched content.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "check-in",
+                    "title": "Check in"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [
+                        "cm:content"
+                    ],
+                    "parameterDefinitions": [
+                        {
+                            "name": "destination-folder",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Destination folder"
+                        },
+                        {
+                            "name": "assoc-type",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Association type"
+                        },
+                        {
+                            "name": "assoc-name",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Association name"
+                        }
+                    ],
+                    "name": "check-out",
+                    "trackStatus": false,
+                    "description": "This will check out the matched content.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "check-out",
+                    "title": "Check out"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "destination-folder",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Destination folder"
+                        },
+                        {
+                            "name": "deep-copy",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Deep copy"
+                        },
+                        {
+                            "name": "overwrite-copy",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Overwrite copy"
+                        }
+                    ],
+                    "name": "copy",
+                    "trackStatus": false,
+                    "description": "This will copy the matched item to another space.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "copy",
+                    "title": "Copy"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [],
+                    "name": "counter",
+                    "trackStatus": false,
+                    "adhocPropertiesAllowed": false,
+                    "id": "counter",
+                    "title": "Increment Counter"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [
+                        "cm:content"
+                    ],
+                    "parameterDefinitions": [],
+                    "name": "extract-metadata",
+                    "trackStatus": false,
+                    "description": "Imports title, author and description metadata fields from common content types.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "extract-metadata",
+                    "title": "Extract common metadata fields"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "destination",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Destination"
+                        },
+                        {
+                            "name": "encoding",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Encoding"
+                        }
+                    ],
+                    "name": "import",
+                    "trackStatus": false,
+                    "description": "Imports an Alfresco content package into the repository.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "import",
+                    "title": "Import"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "category-aspect",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Category aspect"
+                        },
+                        {
+                            "name": "category-value",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Category value"
+                        }
+                    ],
+                    "name": "link-category",
+                    "trackStatus": false,
+                    "description": "This will apply a category to the matched item.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "link-category",
+                    "title": "Link to category"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "to",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "To"
+                        },
+                        {
+                            "name": "cc",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false
+                        },
+                        {
+                            "name": "bcc",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false
+                        },
+                        {
+                            "name": "to_many",
+                            "type": "d:any",
+                            "multiValued": true,
+                            "mandatory": false,
+                            "displayLabel": "To"
+                        },
+                        {
+                            "name": "subject",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Subject"
+                        },
+                        {
+                            "name": "text",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Body"
+                        },
+                        {
+                            "name": "from",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "From"
+                        },
+                        {
+                            "name": "template",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "E-Mail template",
+                            "parameterConstraintName": "ac-email-templates"
+                        },
+                        {
+                            "name": "template_model",
+                            "type": "d:any",
+                            "multiValued": true,
+                            "mandatory": false,
+                            "displayLabel": "Additional parameters for the email template"
+                        },
+                        {
+                            "name": "ignore_send_failure",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Ignore Send Failures"
+                        }
+                    ],
+                    "name": "mail",
+                    "trackStatus": false,
+                    "description": "This will send an email to a list of users when the content matches.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "mail",
+                    "title": "Send email"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "destination-folder",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Destination folder"
+                        }
+                    ],
+                    "name": "move",
+                    "trackStatus": false,
+                    "description": "This will move the matched item to another space.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "move",
+                    "title": "Move"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "aspect-name",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Aspect",
+                            "parameterConstraintName": "ac-aspects"
+                        }
+                    ],
+                    "name": "remove-features",
+                    "trackStatus": false,
+                    "description": "This will remove an aspect from the matched item.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "remove-features",
+                    "title": "Remove aspect"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "script-ref",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Script",
+                            "parameterConstraintName": "ac-scripts"
+                        }
+                    ],
+                    "name": "script",
+                    "trackStatus": false,
+                    "description": "Execute a JavaScript file to perform tasks such as creating new files or folders.",
+                    "adhocPropertiesAllowed": true,
+                    "id": "script",
+                    "title": "Execute script"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "property",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Property",
+                            "parameterConstraintName": "ac-properties"
+                        },
+                        {
+                            "name": "value",
+                            "type": "d:any",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Value"
+                        }
+                    ],
+                    "name": "set-property-value",
+                    "trackStatus": false,
+                    "description": "This will set the value of a property to a given value.",
+                    "adhocPropertiesAllowed": true,
+                    "id": "set-property-value",
+                    "title": "Set property value"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "approve-step",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Approve step"
+                        },
+                        {
+                            "name": "approve-folder",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Approve step folder"
+                        },
+                        {
+                            "name": "approve-move",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Approve move"
+                        },
+                        {
+                            "name": "reject-step",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Reject step"
+                        },
+                        {
+                            "name": "reject-folder",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Reject step folder"
+                        },
+                        {
+                            "name": "reject-move",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Reject move"
+                        }
+                    ],
+                    "name": "simple-workflow",
+                    "trackStatus": false,
+                    "description": "This will add a simple workflow to the matched item.  This will allow the item to be moved to a different space for its next step in a workflow.  You can also give a space for it to be moved to if you want a reject step.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "simple-workflow",
+                    "title": "Add simple workflow"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [],
+                    "parameterDefinitions": [
+                        {
+                            "name": "type-name",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Type",
+                            "parameterConstraintName": "ac-types"
+                        }
+                    ],
+                    "name": "specialise-type",
+                    "trackStatus": false,
+                    "description": "This will specialise the matched item to a given type.",
+                    "adhocPropertiesAllowed": false,
+                    "id": "specialise-type",
+                    "title": "Specialise type"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [
+                        "cm:content"
+                    ],
+                    "parameterDefinitions": [
+                        {
+                            "name": "mime-type",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Mimetype",
+                            "parameterConstraintName": "ac-mimetypes"
+                        },
+                        {
+                            "name": "destination-folder",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Destination folder"
+                        },
+                        {
+                            "name": "assoc-type",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Association type"
+                        },
+                        {
+                            "name": "assoc-name",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Association name"
+                        },
+                        {
+                            "name": "overwrite-copy",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Overwrite copy"
+                        }
+                    ],
+                    "name": "transform",
+                    "trackStatus": false,
+                    "description": "This will transform the matched content and copy the result to a specific space",
+                    "adhocPropertiesAllowed": false,
+                    "id": "transform",
+                    "title": "Transform and copy content"
+                }
+            },
+            {
+                "entry": {
+                    "applicableTypes": [
+                        "cm:content"
+                    ],
+                    "parameterDefinitions": [
+                        {
+                            "name": "mime-type",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Mimetype",
+                            "parameterConstraintName": "ac-mimetypes"
+                        },
+                        {
+                            "name": "destination-folder",
+                            "type": "d:noderef",
+                            "multiValued": false,
+                            "mandatory": true,
+                            "displayLabel": "Destination folder"
+                        },
+                        {
+                            "name": "assoc-type",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Association type"
+                        },
+                        {
+                            "name": "assoc-name",
+                            "type": "d:qname",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Association name"
+                        },
+                        {
+                            "name": "overwrite-copy",
+                            "type": "d:boolean",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Overwrite copy"
+                        },
+                        {
+                            "name": "convert-command",
+                            "type": "d:text",
+                            "multiValued": false,
+                            "mandatory": false,
+                            "displayLabel": "Conversion command"
+                        }
+                    ],
+                    "name": "transform-image",
+                    "trackStatus": false,
+                    "description": "This will transform the matched image and copy the result to a specific space",
+                    "adhocPropertiesAllowed": false,
+                    "id": "transform-image",
+                    "title": "Transform and copy image"
+                }
+            }
+        ]
+    }
+}
