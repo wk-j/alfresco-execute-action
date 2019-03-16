@@ -1,0 +1,12 @@
+http --form --auth admin:admin
+  POST http://localhost:8082/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children
+  fileData@./README.md
+  relativePath="x/y/z"
+  overwrite=true
+  autoRename=false
+  majorVersion=false
+  cm\\:title="THAILAND’SBIOECONOMYINDUSTRY"
+  cm\\:description="NDUSTRY OVERVIEW"
+  cm\\:author="admin"
+  comment="Upload with HTTPie"
+  name="README.md"

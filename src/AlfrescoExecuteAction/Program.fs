@@ -7,19 +7,24 @@ open AlfrescoAuthApi
 open AlfrescoCoreApi
 open Newtonsoft.Json
 open System.IO
+open System
+open System.Threading
+open AlfrescoApi.Custom
 
 type Options = {
     User: string
     Password: string
     Url: string
+    Action: FileInfo option
     TargetPath: string
 }
 
-let defaltOptions() =
+let defaultOptions() =
     { User = "admin"
       Password = "admin"
+      Action = None
       Url = "http://localhost:8082"
-      TargetPath = " "}
+      TargetPath = ""}
 
 let basicToken user password =
     let byteArray = Encoding.ASCII.GetBytes(sprintf "%s:%s" user password)
@@ -47,19 +52,60 @@ let executeAction url ticket body =
     printfn "%s" json
 
 
+let targetPathId url path ticket =
+    let core = AlfrescoApi.Custom.CustomApiClient(url, ticket)
+    let response =
+        core.GetNodeByRelativePath(path)
+        |> Async.AwaitTask
+        |> Async.RunSynchronously
+    response.Uuid
+
+let rec parseArgs options args =
+    match args with
+    | "--user" :: xs | "-u" :: xs ->
+        match xs with
+        | value :: xss -> parseArgs { options with User = value } xss
+        | _ -> parseArgs options xs
+    | "--password" :: xs | "-p" :: xs ->
+        match xs with
+        | value :: xss -> parseArgs { options with Password = value } xss
+        | _ -> parseArgs options xs
+    | "--target-path" :: xs | "-t" :: xs ->
+        match xs with
+        | value :: xss -> parseArgs { options with TargetPath = value } xss
+        | _ -> parseArgs options xs
+    | "--url" :: xs | "-h" :: xs ->
+        match xs with
+        | value :: xss -> parseArgs { options with Url = value } xss
+        | _ -> parseArgs options xs
+    | [value] ->
+        let action =
+            if File.Exists(value) then Some (FileInfo(value))
+            else None
+        { options with Action = action}
+    | _ -> options
+
 [<EntryPoint>]
 let main argv =
-
-    // http://localhost:8080/share/page/folder-details?nodeRef=workspace://SpacesStore/93ca01f1-d126-4ab2-a9bd-2cda27f65fe5
-
-    let url = "http://localhost:8082"
-    let user = "admin"
-    let password = "admin"
+    let options = parseArgs (defaultOptions()) (List.ofArray argv)
+    let url = options.Url
+    let user = options.User
+    let password = options.Password
     let ticket = getTicket url user password
+    let action  = options.Action
+    let targetPath = options.TargetPath
 
-    let json = File.ReadAllText("http/AddFeature.json")
-    let actionBody = JsonConvert.DeserializeObject<ActionBodyExec>(json)
 
-    executeAction url ticket actionBody
+    match action with
+    | Some file ->
+        let json = File.ReadAllText(file.FullName)
+        let actionBody = JsonConvert.DeserializeObject<ActionBodyExec>(json)
+        if targetPath <> "" then
+            let uuid = targetPathId url targetPath ticket
+            actionBody.TargetId <- uuid
+        executeAction url ticket actionBody
+        printfn "> Add action - %A to %A" (actionBody.ActionDefinitionId) (actionBody.TargetId)
+        0
+    | None ->
+        -1
 
-    0 // return an integer exit code
