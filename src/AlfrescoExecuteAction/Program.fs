@@ -48,9 +48,7 @@ let executeAction url ticket body =
         |> Async.AwaitTask
         |> Async.RunSynchronously
 
-    let json = JsonConvert.SerializeObject(response)
-    printfn "%s" json
-
+    printfn "> Return %s" (response.Entry.Id)
 
 let targetPathId url path ticket =
     let core = AlfrescoApi.Custom.CustomApiClient(url, ticket)
